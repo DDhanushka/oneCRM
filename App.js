@@ -1,6 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text} from 'react-native';
 import auth from '@react-native-firebase/auth';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import LoginScreen from './src/screens/LoginScreen';
+import WelcomeScreen from './src/screens/WelcomeScreen';
+
+const Stack = createStackNavigator();
 
 const App = () => {
   // Set an initializing state whilst Firebase connects
@@ -20,19 +26,46 @@ const App = () => {
 
   if (initializing) return null;
 
-  if (!user) {
-    return (
-      <View>
-        <Text>Login</Text>
-      </View>
-    );
-  }
-
   return (
-    <View>
-      <Text>Welcome {user.email}</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        {!user ? (
+          <Stack.Screen name="loginScreen" component={LoginScreen} />
+        ) : (
+          <Stack.Screen name="welcomeScreen" component={WelcomeScreen} />
+        )}
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
+
+// function DetailsScreen() {
+//   return (
+//     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+//       <Text>Details Screen</Text>
+//     </View>
+//   );
+// }
+
+// function HomeScreen() {
+//   return (
+//     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+//       <Text>Home Screen</Text>
+//     </View>
+//   );
+// }
+
+// const Stack = createNativeStackNavigator();
+
+// function App() {
+//   return (
+//     <NavigationContainer>
+//       <Stack.Navigator initialRouteName="Home">
+//         <Stack.Screen name="Home" component={HomeScreen} />
+//         <Stack.Screen name="Details" component={DetailsScreen} />
+//       </Stack.Navigator>
+//     </NavigationContainer>
+//   );
+// }
 
 export default App;
