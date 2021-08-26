@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "202990524607",
+    "project_id": "hello-6beba",
+    "storage_bucket": "hello-6beba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202990524607:android:27238083f79a7b6dbb0e0a",
+        "android_client_info": {
+          "package_name": "com.onecrm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "202990524607-fo9bagn37om6342otjb5fa7tb3dc7r81.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzQFMcHTlzuB6kbQC2ij2SRltgp9eefl4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "202990524607-fo9bagn37om6342otjb5fa7tb3dc7r81.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
