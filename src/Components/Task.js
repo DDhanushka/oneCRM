@@ -1,10 +1,32 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View, Alert} from 'react-native';
 import theme from '../assets/theme';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import firestore from '@react-native-firebase/firestore';
 
 const Task = props => {
-  const {description, title, complete} = props;
+  const {description, title, complete, id} = props;
+
+  const deleteTask = () => {
+    firestore()
+      .collection('tasks')
+      .doc(id)
+      .delete()
+      .then(() => {
+        console.log('Task deleted!');
+      });
+  };
+
+  const handleDelete = () => {
+    Alert.alert('Alert Title', 'My Alert Msg', [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {text: 'OK', onPress: () => deleteTask()},
+    ]);
+  };
 
   return (
     <>
@@ -21,8 +43,8 @@ const Task = props => {
             style={styles.icon}
           />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => null}>
-          <MaterialIcon name="close" size={26} color={theme.colors.font} />
+        <TouchableOpacity onPress={() => handleDelete()}>
+          <MaterialIcon name="close" size={26} color="#D83D27" />
         </TouchableOpacity>
       </View>
     </>
