@@ -2,9 +2,14 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import WelcomeScreen from '../screens/WelcomeScreen';
-import Other from '../screens/Other';
+import ProjectsScreen from '../screens/ProjectsScreen';
+import OppotunitiesScreen from '../screens/OppotunitiesScreen';
+import TasksScreen from '../screens/TasksScreen';
+import ContactsScreen from '../screens/ContactsScreen';
 
 // const Tab = createBottomTabNavigator();
 const Tab = createMaterialBottomTabNavigator();
@@ -12,34 +17,63 @@ const Tab = createMaterialBottomTabNavigator();
 const TabNavigator = () => {
   return (
     <NavigationContainer independent={true}>
-      <Tab.Navigator screenOptions={{headerShown: false}}>
+      <Tab.Navigator screenOptions={{headerShown: false}} shifting={false}>
         <Tab.Screen
-          name="Home"
-          component={WelcomeScreen}
+          name="Projects"
+          component={ProjectsScreen}
           options={{
-            tabBarLabel: 'Home',
+            tabBarLabel: 'Projects',
             tabBarIcon: ({color}) => (
-              <MaterialCommunityIcons name="home" color={color} size={26} />
+              <MaterialIcons name="architecture" color={color} size={26} />
             ),
           }}
         />
+        <Tab.Screen
+          name="Oppotunities"
+          component={OppotunitiesScreen}
+          options={{
+            tabBarLabel: 'Oppotunities',
+            tabBarIcon: ({color}) => (
+              <FontAwesome name="comment-dollar" color={color} size={23} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Tasks"
+          component={TasksScreen}
+          options={{
+            tabBarLabel: 'Tasks',
+            tabBarIcon: ({color}) => (
+              <FontAwesome name="tasks" color={color} size={23} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Contacts"
+          component={ContactsScreen}
+          options={{
+            tabBarLabel: 'Contacts',
+            tabBarIcon: ({color}) => (
+              <MaterialCommunityIcons
+                name="account-box"
+                color={color}
+                size={26}
+              />
+            ),
+          }}
+        />
+
         <Tab.Screen
           name="Settings"
-          component={Other}
+          component={WelcomeScreen}
           options={{
-            tabBarLabel: 'Home',
+            tabBarLabel: 'Settings',
             tabBarIcon: ({color}) => (
-              <MaterialCommunityIcons name="home" color={color} size={26} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Settings2"
-          component={Other}
-          options={{
-            tabBarLabel: 'Home',
-            tabBarIcon: ({color}) => (
-              <MaterialCommunityIcons name="home" color={color} size={26} />
+              <MaterialCommunityIcons
+                name="account-cog"
+                color={color}
+                size={26}
+              />
             ),
           }}
         />
