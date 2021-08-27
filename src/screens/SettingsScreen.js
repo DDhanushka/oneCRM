@@ -12,7 +12,7 @@ const WelcomeScreen = () => {
 
   return (
     <View>
-      <Text>Welcome</Text>
+      <Text style={styles.welcome}>Welcome</Text>
       <Button mode="contained" onPress={handleSignOut}>
         sign out
       </Button>
@@ -22,4 +22,11 @@ const WelcomeScreen = () => {
 
 export default WelcomeScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+    fontFamily: 'Mukta-SemiBold',
+  },
+});

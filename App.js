@@ -6,6 +6,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import LoginScreen from './src/screens/LoginScreen';
 import TabNavigator from './src/navigation/TabNavigator';
 import theme from './src/assets/theme';
+import {StatusBar} from 'react-native';
 
 const Stack = createStackNavigator();
 
@@ -28,17 +29,20 @@ const App = () => {
   if (initializing) return null;
 
   return (
-    <PaperProvider theme={theme}>
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={{headerShown: false}}>
-          {!user ? (
-            <Stack.Screen name="loginScreen" component={LoginScreen} />
-          ) : (
-            <Stack.Screen name="tabs" component={TabNavigator} />
-          )}
-        </Stack.Navigator>
-      </NavigationContainer>
-    </PaperProvider>
+    <>
+      <StatusBar backgroundColor={theme.colors.primary} />
+      <PaperProvider theme={theme}>
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={{headerShown: false}}>
+            {!user ? (
+              <Stack.Screen name="loginScreen" component={LoginScreen} />
+            ) : (
+              <Stack.Screen name="tabs" component={TabNavigator} />
+            )}
+          </Stack.Navigator>
+        </NavigationContainer>
+      </PaperProvider>
+    </>
   );
 };
 

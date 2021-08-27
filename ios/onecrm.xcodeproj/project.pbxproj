@@ -28,6 +28,13 @@
 		98BFA8DED9854C419E96A5E9 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ECA573AF86F541D9A0F248E5 /* Octicons.ttf */; };
 		CA448C72D0824178B73E6795 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47CD6CD075C948D7A5EC71B0 /* SimpleLineIcons.ttf */; };
 		6C8462CEC6DD4170AC4918D8 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1ED536A67EB0424EA9B08D0F /* Zocial.ttf */; };
+		D10383CB71EC435BAC08FAC5 /* Mukta-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A719335D98FC465F8D31C98C /* Mukta-Bold.ttf */; };
+		A68461A223F84628A7748EFE /* Mukta-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16CB1A45BED74AC2BB5352D3 /* Mukta-ExtraBold.ttf */; };
+		CE67B13C89C244638430FC2A /* Mukta-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DB7526828E14DA3ABBB6F18 /* Mukta-ExtraLight.ttf */; };
+		3493692C3D7542FB9B60DAAC /* Mukta-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 985F36E91D944B9FACD03EEE /* Mukta-Light.ttf */; };
+		C4DFD6AC339F4089B148649D /* Mukta-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C8300CCDC894149A6692970 /* Mukta-Medium.ttf */; };
+		0161B640A2284E75BD4CE736 /* Mukta-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 693193F8CA22418D95101916 /* Mukta-Regular.ttf */; };
+		940562F4F49D415C9F56265C /* Mukta-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45F5B022FBC64E528D7E4928 /* Mukta-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +75,13 @@
 		ECA573AF86F541D9A0F248E5 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		47CD6CD075C948D7A5EC71B0 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		1ED536A67EB0424EA9B08D0F /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A719335D98FC465F8D31C98C /* Mukta-Bold.ttf */ = {isa = PBXFileReference; name = "Mukta-Bold.ttf"; path = "../src/assets/fonts/Mukta-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		16CB1A45BED74AC2BB5352D3 /* Mukta-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Mukta-ExtraBold.ttf"; path = "../src/assets/fonts/Mukta-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2DB7526828E14DA3ABBB6F18 /* Mukta-ExtraLight.ttf */ = {isa = PBXFileReference; name = "Mukta-ExtraLight.ttf"; path = "../src/assets/fonts/Mukta-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		985F36E91D944B9FACD03EEE /* Mukta-Light.ttf */ = {isa = PBXFileReference; name = "Mukta-Light.ttf"; path = "../src/assets/fonts/Mukta-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3C8300CCDC894149A6692970 /* Mukta-Medium.ttf */ = {isa = PBXFileReference; name = "Mukta-Medium.ttf"; path = "../src/assets/fonts/Mukta-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		693193F8CA22418D95101916 /* Mukta-Regular.ttf */ = {isa = PBXFileReference; name = "Mukta-Regular.ttf"; path = "../src/assets/fonts/Mukta-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		45F5B022FBC64E528D7E4928 /* Mukta-SemiBold.ttf */ = {isa = PBXFileReference; name = "Mukta-SemiBold.ttf"; path = "../src/assets/fonts/Mukta-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +190,13 @@
 				ECA573AF86F541D9A0F248E5 /* Octicons.ttf */,
 				47CD6CD075C948D7A5EC71B0 /* SimpleLineIcons.ttf */,
 				1ED536A67EB0424EA9B08D0F /* Zocial.ttf */,
+				A719335D98FC465F8D31C98C /* Mukta-Bold.ttf */,
+				16CB1A45BED74AC2BB5352D3 /* Mukta-ExtraBold.ttf */,
+				2DB7526828E14DA3ABBB6F18 /* Mukta-ExtraLight.ttf */,
+				985F36E91D944B9FACD03EEE /* Mukta-Light.ttf */,
+				3C8300CCDC894149A6692970 /* Mukta-Medium.ttf */,
+				693193F8CA22418D95101916 /* Mukta-Regular.ttf */,
+				45F5B022FBC64E528D7E4928 /* Mukta-SemiBold.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -287,6 +308,13 @@
 				98BFA8DED9854C419E96A5E9 /* Octicons.ttf in Resources */,
 				CA448C72D0824178B73E6795 /* SimpleLineIcons.ttf in Resources */,
 				6C8462CEC6DD4170AC4918D8 /* Zocial.ttf in Resources */,
+				D10383CB71EC435BAC08FAC5 /* Mukta-Bold.ttf in Resources */,
+				A68461A223F84628A7748EFE /* Mukta-ExtraBold.ttf in Resources */,
+				CE67B13C89C244638430FC2A /* Mukta-ExtraLight.ttf in Resources */,
+				3493692C3D7542FB9B60DAAC /* Mukta-Light.ttf in Resources */,
+				C4DFD6AC339F4089B148649D /* Mukta-Medium.ttf in Resources */,
+				0161B640A2284E75BD4CE736 /* Mukta-Regular.ttf in Resources */,
+				940562F4F49D415C9F56265C /* Mukta-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
