@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {StyleSheet, Text, Button, View, ScrollView} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 import {FAB, Appbar} from 'react-native-paper';
 import Container from '../Components/Container';
 import Task from '../Components/Task';
+import {AppContext} from '../context/AppContext';
 
 const TasksScreen = ({navigation}) => {
   const [loading, setLoading] = useState(true);
@@ -11,25 +12,29 @@ const TasksScreen = ({navigation}) => {
 
   const ref = firestore().collection('tasks');
 
+  const context = useContext(AppContext);
+
   useEffect(() => {
-    return ref.onSnapshot(querySnapshot => {
-      const list = [];
-      querySnapshot.forEach(doc => {
-        const {title, complete, description} = doc.data();
-        list.push({
-          id: doc.id,
-          title,
-          complete,
-          description,
+    if (context.user !== null) {
+      return ref.onSnapshot(querySnapshot => {
+        const list = [];
+        querySnapshot.forEach(doc => {
+          const {title, complete, description} = doc.data();
+          list.push({
+            id: doc.id,
+            title,
+            complete,
+            description,
+          });
         });
+
+        setTasks(list);
+
+        if (loading) {
+          setLoading(false);
+        }
       });
-
-      setTasks(list);
-
-      if (loading) {
-        setLoading(false);
-      }
-    });
+    }
   }, []);
 
   return (

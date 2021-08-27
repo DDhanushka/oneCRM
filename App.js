@@ -7,7 +7,7 @@ import LoginScreen from './src/screens/LoginScreen';
 import TabNavigator from './src/navigation/TabNavigator';
 import theme from './src/assets/theme';
 import {StatusBar} from 'react-native';
-import AddTaskScreen from './src/screens/AddTaskScreen';
+import {AppContext} from './src/context/AppContext';
 
 const Stack = createStackNavigator();
 
@@ -31,18 +31,20 @@ const App = () => {
 
   return (
     <>
-      <StatusBar backgroundColor={theme.colors.primary} />
-      <PaperProvider theme={theme}>
-        <NavigationContainer>
-          <Stack.Navigator screenOptions={{headerShown: false}}>
-            {!user ? (
-              <Stack.Screen name="loginScreen" component={LoginScreen} />
-            ) : (
-              <Stack.Screen name="tabs" component={TabNavigator} />
-            )}
-          </Stack.Navigator>
-        </NavigationContainer>
-      </PaperProvider>
+      <AppContext.Provider value={{user}}>
+        <StatusBar backgroundColor={theme.colors.primary} />
+        <PaperProvider theme={theme}>
+          <NavigationContainer>
+            <Stack.Navigator screenOptions={{headerShown: false}}>
+              {!user ? (
+                <Stack.Screen name="loginScreen" component={LoginScreen} />
+              ) : (
+                <Stack.Screen name="tabs" component={TabNavigator} />
+              )}
+            </Stack.Navigator>
+          </NavigationContainer>
+        </PaperProvider>
+      </AppContext.Provider>
     </>
   );
 };

@@ -11,7 +11,7 @@ const LoginScreen = () => {
     setLoading(true);
     auth()
       .signInWithEmailAndPassword(
-        'jane.doe@example.com',
+        'janex.doe@example.com',
         'SuperSecretPassword!',
       )
       .then(() => {
@@ -34,7 +34,7 @@ const LoginScreen = () => {
   const handleSignUp = () => {
     auth()
       .createUserWithEmailAndPassword(
-        'jane.doe@example.com',
+        'janex.doe@example.com',
         'SuperSecretPassword!',
       )
       .then(() => {

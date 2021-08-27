@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Alert, View} from 'react-native';
 import {Button, Appbar, TextInput} from 'react-native-paper';
 import Container from '../Components/Container';
 import {ActivityIndicator} from 'react-native-paper';
@@ -17,7 +17,7 @@ const AddTaskScreen = ({navigation}) => {
     if (task !== '' && desc !== '') {
       addTask();
     } else {
-      alert('Empty fields');
+      Alert.alert('Empty values', 'Please enter something', [{text: 'OK'}]);
     }
   };
 
@@ -42,7 +42,7 @@ const AddTaskScreen = ({navigation}) => {
       <Appbar>
         <Appbar.Content title="Add new task" />
       </Appbar>
-      <Container>
+      <Container style={{paddingTop: 15}}>
         <TextInput
           mode="outlined"
           label="Task title"
