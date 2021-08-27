@@ -5,6 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import LoginScreen from './src/screens/LoginScreen';
 import WelcomeScreen from './src/screens/WelcomeScreen';
+import TabNavigator from './src/navigation/TabNavigator';
 
 const Stack = createStackNavigator();
 
@@ -32,40 +33,11 @@ const App = () => {
         {!user ? (
           <Stack.Screen name="loginScreen" component={LoginScreen} />
         ) : (
-          <Stack.Screen name="welcomeScreen" component={WelcomeScreen} />
+          <Stack.Screen name="tabs" component={TabNavigator}/>
         )}
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
-
-// function DetailsScreen() {
-//   return (
-//     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-//       <Text>Details Screen</Text>
-//     </View>
-//   );
-// }
-
-// function HomeScreen() {
-//   return (
-//     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-//       <Text>Home Screen</Text>
-//     </View>
-//   );
-// }
-
-// const Stack = createNativeStackNavigator();
-
-// function App() {
-//   return (
-//     <NavigationContainer>
-//       <Stack.Navigator initialRouteName="Home">
-//         <Stack.Screen name="Home" component={HomeScreen} />
-//         <Stack.Screen name="Details" component={DetailsScreen} />
-//       </Stack.Navigator>
-//     </NavigationContainer>
-//   );
-// }
 
 export default App;
