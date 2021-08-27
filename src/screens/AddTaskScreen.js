@@ -1,15 +1,17 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {Button} from 'react-native-paper';
 import Container from '../Components/Container';
 
-const ProjectsScreen = () => {
+const AddTaskScreen = ({navigation}) => {
   return (
     <Container>
-      <Text>Projects</Text>
+      <Text>Add task </Text>
+      <Button onPress={() => navigation.goBack()}>Cancel</Button>
     </Container>
   );
 };
 
-export default ProjectsScreen;
+export default AddTaskScreen;
 
 const styles = StyleSheet.create({});

@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Button} from 'react-native-paper';
 import auth from '@react-native-firebase/auth';
+import Container from '../Components/Container';
 
 const WelcomeScreen = () => {
   const handleSignOut = () => {
@@ -11,12 +12,12 @@ const WelcomeScreen = () => {
   };
 
   return (
-    <View>
+    <Container>
       <Text style={styles.welcome}>Welcome</Text>
       <Button mode="contained" onPress={handleSignOut}>
         sign out
       </Button>
-    </View>
+    </Container>
   );
 };
 

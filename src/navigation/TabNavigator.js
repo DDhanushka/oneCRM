@@ -11,6 +11,7 @@ import OppotunitiesScreen from '../screens/OppotunitiesScreen';
 import TasksScreen from '../screens/TasksScreen';
 import ContactsScreen from '../screens/ContactsScreen';
 import theme from '../assets/theme';
+import {TasksNav} from './StackNavigators';
 
 // const Tab = createBottomTabNavigator();
 const Tab = createMaterialBottomTabNavigator();
@@ -46,7 +47,7 @@ const TabNavigator = () => {
         />
         <Tab.Screen
           name="Tasks"
-          component={TasksScreen}
+          component={TasksNav}
           options={{
             tabBarLabel: 'Tasks',
             tabBarIcon: ({color}) => (
@@ -68,7 +69,6 @@ const TabNavigator = () => {
             ),
           }}
         />
-
         <Tab.Screen
           name="Settings"
           component={SettingsScreen}

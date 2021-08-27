@@ -7,6 +7,7 @@ import LoginScreen from './src/screens/LoginScreen';
 import TabNavigator from './src/navigation/TabNavigator';
 import theme from './src/assets/theme';
 import {StatusBar} from 'react-native';
+import AddTaskScreen from './src/screens/AddTaskScreen';
 
 const Stack = createStackNavigator();
 
