@@ -1,21 +1,58 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {StyleSheet, Text, Button, View} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
-import {FAB} from 'react-native-paper';
+import {FAB, Appbar} from 'react-native-paper';
 import Container from '../Components/Container';
 
 const TasksScreen = ({navigation}) => {
+  const [loading, setLoading] = useState(true);
+  const [tasks, setTasks] = useState([]);
+
+  const ref = firestore().collection('tasks');
+
+  useEffect(() => {
+    return ref.onSnapshot(querySnapshot => {
+      const list = [];
+      querySnapshot.forEach(doc => {
+        const {title, complete, description} = doc.data();
+        list.push({
+          id: doc.id,
+          title,
+          complete,
+          description,
+        });
+      });
+
+      setTasks(list);
+
+      if (loading) {
+        setLoading(false);
+      }
+    });
+  }, []);
+
   return (
-    <Container>
-      <Text>Tasks</Text>
-      <FAB
-        style={styles.fab}
-        small
-        icon="plus"
-        onPress={() => navigation.navigate('AddTask')}
-        theme={{colors: {...{accent: '#0500EE'}}}}
-      />
-    </Container>
+    <>
+      <Appbar>
+        <Appbar.Content title="Tasks" />
+      </Appbar>
+      <Container>
+        <Text>Tasks s</Text>
+        <FAB
+          style={styles.fab}
+          small
+          icon="plus"
+          onPress={() => navigation.navigate('AddTask')}
+          theme={{colors: {...{accent: '#0500EE'}}}}
+        />
+
+        {tasks.map(e => (
+          <Text key={e.id} style={{color: 'red'}}>
+            {e.title} / {e.description}
+          </Text>
+        ))}
+      </Container>
+    </>
   );
 };
 

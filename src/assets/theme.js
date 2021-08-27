@@ -3,7 +3,6 @@ import customFonts from './fonts';
 
 const theme = {
   ...DefaultTheme,
-  roundness: 2,
   fonts: configureFonts(customFonts),
   colors: {
     ...DefaultTheme.colors,

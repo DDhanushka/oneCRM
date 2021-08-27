@@ -1,9 +1,14 @@
-import React from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 import auth from '@react-native-firebase/auth';
+import Container from '../Components/Container';
+import {Button, ActivityIndicator} from 'react-native-paper';
 
 const LoginScreen = () => {
+  const [loading, setLoading] = useState(false);
+
   const handleSignIn = () => {
+    setLoading(true);
     auth()
       .signInWithEmailAndPassword(
         'jane.doe@example.com',
@@ -11,6 +16,7 @@ const LoginScreen = () => {
       )
       .then(() => {
         console.log('User signed in!');
+        setLoading(false);
       })
       .catch(error => {
         if (error.code === 'auth/email-already-in-use') {
@@ -48,11 +54,14 @@ const LoginScreen = () => {
   };
 
   return (
-    <View>
+    <Container>
       <Text>Login</Text>
-      <Button title="sign in" onPress={handleSignIn} />
-      <Button title="sign up" onPress={handleSignUp} />
-    </View>
+      <Button mode="contained" onPress={handleSignIn}>
+        Sign In
+      </Button>
+      <Button onPress={handleSignUp}>Sign Up </Button>
+      {loading && <ActivityIndicator animating={true} />}
+    </Container>
   );
 };
 
