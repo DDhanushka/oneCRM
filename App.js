@@ -33,7 +33,7 @@ const App = () => {
         {!user ? (
           <Stack.Screen name="loginScreen" component={LoginScreen} />
         ) : (
-          <Stack.Screen name="tabs" component={TabNavigator}/>
+          <Stack.Screen name="tabs" component={TabNavigator} />
         )}
       </Stack.Navigator>
     </NavigationContainer>
