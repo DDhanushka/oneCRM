@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text} from 'react-native';
+import {Provider as PaperProvider} from 'react-native-paper';
 import auth from '@react-native-firebase/auth';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import LoginScreen from './src/screens/LoginScreen';
-import WelcomeScreen from './src/screens/WelcomeScreen';
 import TabNavigator from './src/navigation/TabNavigator';
+import theme from './src/assets/theme';
 
 const Stack = createStackNavigator();
 
@@ -28,15 +28,17 @@ const App = () => {
   if (initializing) return null;
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        {!user ? (
-          <Stack.Screen name="loginScreen" component={LoginScreen} />
-        ) : (
-          <Stack.Screen name="tabs" component={TabNavigator} />
-        )}
-      </Stack.Navigator>
-    </NavigationContainer>
+    <PaperProvider theme={theme}>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{headerShown: false}}>
+          {!user ? (
+            <Stack.Screen name="loginScreen" component={LoginScreen} />
+          ) : (
+            <Stack.Screen name="tabs" component={TabNavigator} />
+          )}
+        </Stack.Navigator>
+      </NavigationContainer>
+    </PaperProvider>
   );
 };
 

@@ -5,11 +5,12 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-import WelcomeScreen from '../screens/WelcomeScreen';
+import SettingsScreen from '../screens/SettingsScreen';
 import ProjectsScreen from '../screens/ProjectsScreen';
 import OppotunitiesScreen from '../screens/OppotunitiesScreen';
 import TasksScreen from '../screens/TasksScreen';
 import ContactsScreen from '../screens/ContactsScreen';
+import theme from '../assets/theme';
 
 // const Tab = createBottomTabNavigator();
 const Tab = createMaterialBottomTabNavigator();
@@ -17,14 +18,19 @@ const Tab = createMaterialBottomTabNavigator();
 const TabNavigator = () => {
   return (
     <NavigationContainer independent={true}>
-      <Tab.Navigator screenOptions={{headerShown: false}} shifting={false}>
+      <Tab.Navigator
+        screenOptions={{headerShown: false}}
+        shifting={false}
+        barStyle={{backgroundColor: '#F9F9F9'}}
+        activeColor={theme.colors.primary}
+        inactiveColor="#888">
         <Tab.Screen
           name="Projects"
           component={ProjectsScreen}
           options={{
             tabBarLabel: 'Projects',
             tabBarIcon: ({color}) => (
-              <MaterialIcons name="architecture" color={color} size={26} />
+              <MaterialIcons name="architecture" color={color} size={28} />
             ),
           }}
         />
@@ -65,7 +71,7 @@ const TabNavigator = () => {
 
         <Tab.Screen
           name="Settings"
-          component={WelcomeScreen}
+          component={SettingsScreen}
           options={{
             tabBarLabel: 'Settings',
             tabBarIcon: ({color}) => (
