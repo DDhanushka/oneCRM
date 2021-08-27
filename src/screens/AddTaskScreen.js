@@ -13,6 +13,14 @@ const AddTaskScreen = ({navigation}) => {
   const [loading, setLoading] = useState(false);
   const ref = firestore().collection('tasks');
 
+  const handleAddTask = () => {
+    if (task !== '' && desc !== '') {
+      addTask();
+    } else {
+      alert('Empty fields');
+    }
+  };
+
   const addTask = async () => {
     setLoading(true);
     await ref
@@ -39,6 +47,7 @@ const AddTaskScreen = ({navigation}) => {
           mode="outlined"
           label="Task title"
           value={task}
+          autoFocus
           onChangeText={val => {
             setTask(val);
           }}
@@ -53,7 +62,7 @@ const AddTaskScreen = ({navigation}) => {
             setDesc(val);
           }}
           style={styles.textInput}
-          outlineColor={theme.colors.primary}
+          outlineColor={theme.colors.font}
           multiline
           numberOfLines={5}
         />
@@ -62,7 +71,7 @@ const AddTaskScreen = ({navigation}) => {
             <ActivityIndicator animating={true} />
           ) : (
             <View>
-              <Button mode="contained" onPress={() => addTask()}>
+              <Button mode="contained" onPress={() => handleAddTask()}>
                 Add
               </Button>
               <Button onPress={() => navigation.goBack()}>Cancel</Button>

@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, Text, Button, View} from 'react-native';
+import {StyleSheet, Text, Button, View, ScrollView} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 import {FAB, Appbar} from 'react-native-paper';
 import Container from '../Components/Container';
+import Task from '../Components/Task';
 
 const TasksScreen = ({navigation}) => {
   const [loading, setLoading] = useState(true);
@@ -37,21 +38,25 @@ const TasksScreen = ({navigation}) => {
         <Appbar.Content title="Tasks" />
       </Appbar>
       <Container>
-        <Text>Tasks s</Text>
-        <FAB
-          style={styles.fab}
-          small
-          icon="plus"
-          onPress={() => navigation.navigate('AddTask')}
-          theme={{colors: {...{accent: '#0500EE'}}}}
-        />
-
+        {tasks.length === 0 && (
+          <View style={styles.emptyLabel}>
+            <Text style={styles.emptyTxt}> Sorry ! No tasks found.</Text>
+            <Text style={styles.emptyTxt}> Try adding a new one.</Text>
+          </View>
+        )}
         {tasks.map(e => (
-          <Text key={e.id} style={{color: 'red'}}>
+          <Task key={e.id} {...e}>
             {e.title} / {e.description}
-          </Text>
+          </Task>
         ))}
       </Container>
+      <FAB
+        style={styles.fab}
+        small
+        icon="plus"
+        onPress={() => navigation.navigate('AddTask')}
+        theme={{colors: {...{accent: '#0500EE'}}}}
+      />
     </>
   );
 };
@@ -64,5 +69,15 @@ const styles = StyleSheet.create({
     margin: 16,
     right: 0,
     bottom: 0,
+  },
+  emptyLabel: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  emptyTxt: {
+    fontFamily: 'Mukta-Light',
+    fontSize: 20,
+    color: '#aaa',
   },
 });
