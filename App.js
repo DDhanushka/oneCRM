@@ -32,7 +32,7 @@ const App = () => {
   return (
     <>
       <AppContext.Provider value={{user}}>
-        <StatusBar backgroundColor={theme.colors.primary} />
+        <StatusBar backgroundColor="#0400A7" />
         <PaperProvider theme={theme}>
           <NavigationContainer>
             <Stack.Navigator screenOptions={{headerShown: false}}>
