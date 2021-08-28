@@ -19,6 +19,8 @@ const LoginScreen = () => {
         setLoading(false);
       })
       .catch(error => {
+        setLoading(false);
+
         if (error.code === 'auth/email-already-in-use') {
           console.log('That email address is already in use!');
         }
@@ -32,15 +34,23 @@ const LoginScreen = () => {
   };
 
   const handleSignUp = () => {
+    setLoading(true);
+
     auth()
       .createUserWithEmailAndPassword(
         'janex.doe@example.com',
         'SuperSecretPassword!',
       )
-      .then(() => {
+      .then(res => {
+        res.user.updateProfile({
+          displayName: 'Jane doe',
+        });
         console.log('User account created & signed in!');
+        setLoading(false);
       })
       .catch(error => {
+        setLoading(false);
+
         if (error.code === 'auth/email-already-in-use') {
           console.log('That email address is already in use!');
         }

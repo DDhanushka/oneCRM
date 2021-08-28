@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Button} from 'react-native-paper';
 import auth from '@react-native-firebase/auth';
 import Container from '../Components/Container';
+import {AppContext} from '../context/AppContext';
 
 const WelcomeScreen = () => {
+  const context = useContext(AppContext);
+  const {user} = context;
+
   const handleSignOut = () => {
     auth()
       .signOut()
@@ -13,7 +17,9 @@ const WelcomeScreen = () => {
 
   return (
     <Container>
-      <Text style={styles.welcome}>Welcome</Text>
+      <Text style={styles.welcome}>
+        Welcome {user && auth().currentUser.displayName}
+      </Text>
       <Button mode="contained" onPress={handleSignOut}>
         sign out
       </Button>
