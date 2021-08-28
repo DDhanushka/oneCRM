@@ -3,13 +3,16 @@ import {StyleSheet, Text, TouchableOpacity, View, Alert} from 'react-native';
 import theme from '../assets/theme';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
 
 const Task = props => {
   const {description, title, complete, id} = props;
 
   const deleteTask = () => {
     firestore()
-      .collection('tasks')
+      .collection('Users')
+      .doc(auth().currentUser.uid)
+      .collection('Tasks')
       .doc(id)
       .delete()
       .then(() => {
@@ -18,7 +21,7 @@ const Task = props => {
   };
 
   const handleDelete = () => {
-    Alert.alert('Alert Title', 'My Alert Msg', [
+    Alert.alert('Delete task?', 'You can not recover deleted tasks later!', [
       {
         text: 'Cancel',
         onPress: () => console.log('Cancel Pressed'),
