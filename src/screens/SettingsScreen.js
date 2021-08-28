@@ -20,6 +20,7 @@ const WelcomeScreen = () => {
       <Text style={styles.welcome}>
         Welcome {user && auth().currentUser.displayName}
       </Text>
+      <Text>{user && auth().currentUser.uid}</Text>
       <Button mode="contained" onPress={handleSignOut}>
         sign out
       </Button>

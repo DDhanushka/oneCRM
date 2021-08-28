@@ -11,7 +11,7 @@ const LoginScreen = () => {
     setLoading(true);
     auth()
       .signInWithEmailAndPassword(
-        'janex.doe@example.com',
+        'jane.doe@example.com',
         'SuperSecretPassword!',
       )
       .then(() => {
@@ -38,12 +38,12 @@ const LoginScreen = () => {
 
     auth()
       .createUserWithEmailAndPassword(
-        'janex.doe@example.com',
+        'jane.doe@example.com',
         'SuperSecretPassword!',
       )
       .then(res => {
         res.user.updateProfile({
-          displayName: 'Jane doe',
+          displayName: 'Ado doe',
         });
         console.log('User account created & signed in!');
         setLoading(false);

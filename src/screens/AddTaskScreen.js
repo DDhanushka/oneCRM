@@ -3,7 +3,7 @@ import {StyleSheet, Alert, View} from 'react-native';
 import {Button, Appbar, TextInput} from 'react-native-paper';
 import Container from '../Components/Container';
 import {ActivityIndicator} from 'react-native-paper';
-
+import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import theme from '../assets/theme';
 
@@ -11,19 +11,35 @@ const AddTaskScreen = ({navigation}) => {
   const [task, setTask] = useState('');
   const [desc, setDesc] = useState('');
   const [loading, setLoading] = useState(false);
-  const ref = firestore().collection('tasks');
 
   const handleAddTask = () => {
     if (task !== '' && desc !== '') {
+      addUser();
       addTask();
     } else {
       Alert.alert('Empty values', 'Please enter something', [{text: 'OK'}]);
     }
   };
 
+  const addUser = async () => {
+    await firestore()
+      .collection('Users')
+      .doc(auth().currentUser.uid)
+      .set({
+        name: auth().currentUser.displayName,
+        email: auth().currentUser.email,
+      })
+      .then(() => {
+        console.log('User added!');
+      });
+  };
+
   const addTask = async () => {
     setLoading(true);
-    await ref
+    await firestore()
+      .collection('Users')
+      .doc(auth().currentUser.uid)
+      .collection('Tasks')
       .add({
         title: task,
         complete: false,

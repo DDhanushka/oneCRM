@@ -5,35 +5,38 @@ import {FAB, Appbar} from 'react-native-paper';
 import Container from '../Components/Container';
 import Task from '../Components/Task';
 import {AppContext} from '../context/AppContext';
+import auth from '@react-native-firebase/auth';
 
 const TasksScreen = ({navigation}) => {
   const [loading, setLoading] = useState(true);
   const [tasks, setTasks] = useState([]);
 
-  const ref = firestore().collection('tasks');
-
-  const context = useContext(AppContext);
+  const user = useContext(AppContext).user;
 
   useEffect(() => {
-    if (context.user !== null) {
-      return ref.onSnapshot(querySnapshot => {
-        const list = [];
-        querySnapshot.forEach(doc => {
-          const {title, complete, description} = doc.data();
-          list.push({
-            id: doc.id,
-            title,
-            complete,
-            description,
+    if (user !== null) {
+      return firestore()
+        .collection('Users')
+        .doc(auth().currentUser.uid)
+        .collection('Tasks')
+        .onSnapshot(querySnapshot => {
+          const list = [];
+          querySnapshot.forEach(doc => {
+            const {title, complete, description} = doc.data();
+            list.push({
+              id: doc.id,
+              title,
+              complete,
+              description,
+            });
           });
+
+          setTasks(list);
+
+          if (loading) {
+            setLoading(false);
+          }
         });
-
-        setTasks(list);
-
-        if (loading) {
-          setLoading(false);
-        }
-      });
     }
   }, []);
 
