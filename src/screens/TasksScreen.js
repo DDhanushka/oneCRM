@@ -14,30 +14,28 @@ const TasksScreen = ({navigation}) => {
   const user = useContext(AppContext).user;
 
   useEffect(() => {
-    if (user !== null) {
-      return firestore()
-        .collection('Users')
-        .doc(auth().currentUser.uid)
-        .collection('Tasks')
-        .onSnapshot(querySnapshot => {
-          const list = [];
-          querySnapshot.forEach(doc => {
-            const {title, complete, description} = doc.data();
-            list.push({
-              id: doc.id,
-              title,
-              complete,
-              description,
-            });
+    return firestore()
+      .collection('Users')
+      .doc(auth().currentUser.uid)
+      .collection('Tasks')
+      .onSnapshot(querySnapshot => {
+        const list = [];
+        querySnapshot.forEach(doc => {
+          const {title, complete, description} = doc.data();
+          list.push({
+            id: doc.id,
+            title,
+            complete,
+            description,
           });
-
-          setTasks(list);
-
-          if (loading) {
-            setLoading(false);
-          }
         });
-    }
+
+        setTasks(list);
+
+        if (loading) {
+          setLoading(false);
+        }
+      });
   }, []);
 
   return (

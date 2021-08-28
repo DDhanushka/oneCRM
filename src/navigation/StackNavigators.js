@@ -5,6 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import TasksScreen from '../screens/TasksScreen';
 import AddTaskScreen from '../screens/AddTaskScreen';
+import EditTaskScreen from '../screens/EditTaskScreen';
 
 const Stack = createStackNavigator();
 
@@ -14,6 +15,7 @@ export function TasksNav() {
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="Task" component={TasksScreen} />
         <Stack.Screen name="AddTask" component={AddTaskScreen} />
+        <Stack.Screen name="EditTask" component={EditTaskScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
